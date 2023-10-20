@@ -3,11 +3,11 @@ package org.example;
 import static org.example.Main.*;
 
 public class Ispolindrom implements Runnable {
-    private final int length;
+
     private final String[] texts;
 
-    public Ispolindrom(int length, String[] texts) {
-        this.length = length;
+    public Ispolindrom( String[] texts) {
+
         this.texts = texts;
     }
 
@@ -17,9 +17,15 @@ public class Ispolindrom implements Runnable {
             if (isPolindromSearch(text)) {
                 if (text.length() == 3) {
                     atomicInt1.incrementAndGet();
-                } else if (text.length() == 4) {
+                }
+            }
+            if (isIdenticalWord(text)) {
+                if (text.length() == 4) {
                     atomicInt2.incrementAndGet();
-                } else if (text.length() == 5) {
+                }
+            }
+            if (isWordOrder(text)) {
+                if (text.length() == 5) {
                     atomicInt3.incrementAndGet();
 
                 }
@@ -32,10 +38,44 @@ public class Ispolindrom implements Runnable {
             if (text.charAt(i) != text.charAt(text.length() - 1 - i)) {
                 return false;
             }
-
         }
-        return true;
+        char firstChar = text.charAt(0);
+        for (int i = 1; i < text.length(); i++) {
+            if (text.charAt(i) != firstChar) {
+                return true;
+            }
+        }
+        return false;
+
     }
 
 
+    public static boolean isIdenticalWord(String text) {
+        return text != null && !text.isEmpty() && text.chars().allMatch(c -> text.charAt(0) == c);
+
+    }
+
+    public static boolean isWordOrder(String text) {
+        char oneChar = text.charAt(0);
+        char count = 1;
+        for (int i = 1; i < text.length(); i++) {
+            char currentChar = text.charAt(i);
+
+            if (currentChar == oneChar) {
+                count++;
+            } else {
+                if (currentChar != oneChar + 1) {
+                    return false;
+                }
+                count = 1;
+            }
+            if (count > 2) {
+                return false;
+            }
+            oneChar = currentChar;
+        }
+        return true;
+    }
 }
+
+

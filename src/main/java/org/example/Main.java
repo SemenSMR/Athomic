@@ -10,13 +10,13 @@ public class Main {
 
     public static void main(String[] args) {
         Random random = new Random();
-        String[] texts = new String[100_000];
+        String[] texts = new String[10_000];
         for (int i = 0; i < texts.length; i++) {
             texts[i] = generateText("abc", 3 + random.nextInt(3));
         }
-        Thread thread3 = new Thread(new Ispolindrom(3, texts));
-        Thread thread4 = new Thread(new Ispolindrom(4, texts));
-        Thread thread5 = new Thread(new Ispolindrom(5, texts));
+        Thread thread3 = new Thread(new Ispolindrom( texts));
+        Thread thread4 = new Thread(new Ispolindrom( texts));
+        Thread thread5 = new Thread(new Ispolindrom( texts));
 
         thread3.start();
         thread4.start();
