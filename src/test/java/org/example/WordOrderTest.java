@@ -9,16 +9,16 @@ public class WordOrderTest {
 
     @Test
   public void testValidOrderWord() {
-       assertTrue(Ispolindrom.isWordOrder("bbcc"));
-       assertTrue(Ispolindrom.isWordOrder("aabbc"));
-       assertTrue(Ispolindrom.isWordOrder("abbcc"));
+       assertTrue(WordOrder.isWordOrder("bbcc"));
+       assertTrue(WordOrder.isWordOrder("aabbc"));
+       assertTrue(WordOrder.isWordOrder("abbcc"));
     }
 
     @Test
     public void testInvalidOrderedWord(){
-        assertFalse(Ispolindrom.isWordOrder("acb"));
-        assertFalse(Ispolindrom.isWordOrder("bac"));
-        assertFalse(Ispolindrom.isWordOrder("cab"));
-        assertFalse(Ispolindrom.isWordOrder("cba"));
+        assertFalse(WordOrder.isWordOrder("acb"));
+        assertFalse(WordOrder.isWordOrder("bac"));
+        assertFalse(WordOrder.isWordOrder("cab"));
+        assertFalse(WordOrder.isWordOrder("cba"));
     }
 }

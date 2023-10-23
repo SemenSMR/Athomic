@@ -15,12 +15,13 @@ public class Main {
             texts[i] = generateText("abc", 3 + random.nextInt(3));
         }
         Thread thread3 = new Thread(new Ispolindrom( texts));
-        Thread thread4 = new Thread(new Ispolindrom( texts));
-        Thread thread5 = new Thread(new Ispolindrom( texts));
+        Thread thread4 = new Thread(new IdenticalWord( texts));
+        Thread thread5 = new Thread(new WordOrder( texts));
 
         thread3.start();
         thread4.start();
         thread5.start();
+
 
         try {
             thread3.join();
