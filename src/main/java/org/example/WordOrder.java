@@ -1,7 +1,7 @@
 package org.example;
 
 
-import static org.example.Main.atomicInt3;
+import static org.example.Main.*;
 
 public class WordOrder implements Runnable {
     private final String[] texts;
@@ -14,9 +14,12 @@ public class WordOrder implements Runnable {
     public void run() {
         for (String text : texts)
             if (isWordOrder(text)) {
-                if (text.length() == 5) {
+                if (text.length() == 3) {
+                    atomicInt2.incrementAndGet();
+                } else if (text.length() == 4) {
+                    atomicInt1.incrementAndGet();
+                } else if (text.length() == 5) {
                     atomicInt3.incrementAndGet();
-
                 }
             }
     }

@@ -1,6 +1,6 @@
 package org.example;
 
-import static org.example.Main.atomicInt2;
+import static org.example.Main.*;
 
 public class IdenticalWord implements Runnable {
     private final String[] texts;
@@ -13,8 +13,12 @@ public class IdenticalWord implements Runnable {
     public void run() {
         for (String text : texts)
             if (isIdenticalWord(text)) {
-                if (text.length() == 4) {
+                if (text.length() == 3) {
                     atomicInt2.incrementAndGet();
+                } else if (text.length() == 4) {
+                    atomicInt1.incrementAndGet();
+                } else if (text.length() == 5) {
+                    atomicInt3.incrementAndGet();
                 }
             }
     }

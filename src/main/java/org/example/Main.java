@@ -1,6 +1,8 @@
 package org.example;
 
 import java.util.Random;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Main {
@@ -14,9 +16,10 @@ public class Main {
         for (int i = 0; i < texts.length; i++) {
             texts[i] = generateText("abc", 3 + random.nextInt(3));
         }
-        Thread thread3 = new Thread(new Ispolindrom( texts));
-        Thread thread4 = new Thread(new IdenticalWord( texts));
-        Thread thread5 = new Thread(new WordOrder( texts));
+        Thread thread3 = new Thread(new Ispolindrom(texts));
+        Thread thread4 = new Thread(new IdenticalWord(texts));
+        Thread thread5 = new Thread(new WordOrder(texts));
+
 
         thread3.start();
         thread4.start();
@@ -33,6 +36,7 @@ public class Main {
         System.out.println("Красивых слов с длиной 3: " + atomicInt1.get() + " шт");
         System.out.println("Красивых слов с длиной 4: " + atomicInt2.get() + " шт");
         System.out.println("Красивых слов с длиной 5: " + atomicInt3.get() + " шт");
+
     }
 
 

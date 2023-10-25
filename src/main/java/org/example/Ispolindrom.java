@@ -16,7 +16,11 @@ public class Ispolindrom implements Runnable {
         for (String text : texts) {
             if (isPolindromSearch(text)) {
                 if (text.length() == 3) {
+                    atomicInt2.incrementAndGet();
+                } else if (text.length() == 4) {
                     atomicInt1.incrementAndGet();
+                } else if (text.length() == 5) {
+                    atomicInt3.incrementAndGet();
                 }
             }
         }

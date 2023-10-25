@@ -11,7 +11,7 @@ public class WordOrderTest {
   public void testValidOrderWord() {
        assertTrue(WordOrder.isWordOrder("bbcc"));
        assertTrue(WordOrder.isWordOrder("aabbc"));
-       assertTrue(WordOrder.isWordOrder("abbcc"));
+       assertTrue(WordOrder.isWordOrder("ab"));
     }
 
     @Test
